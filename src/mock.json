@@ -1,0 +1,8 @@
+{
+    "id": 9,
+    "name": "Dog1",
+    "breed_name": "Breed",
+    "birth_date": "10.10.2017",
+    "image_url_small": "https://steamuserimages-a.akamaihd.net/ugc/793112851273988704/D07CDAF7D621DF660F7595E4DBA84ED1A78FFD86/?imw=506&imh=506&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true",
+    "image_url_large": "https://steamuserimages-a.akamaihd.net/ugc/793112851273988704/D07CDAF7D621DF660F7595E4DBA84ED1A78FFD86/?imw=506&imh=506&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
+}
