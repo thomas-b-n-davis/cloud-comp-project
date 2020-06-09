@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import data from "../../mock"
 import Profile from "./Profile";
+import GalleryPicture from "../gallery/Picture";
 
 class ProfileDetails extends Component {
     render() {
@@ -14,8 +15,8 @@ class ProfileDetails extends Component {
         birth_date,
         image_url_small,
         image_url_large,
-    } = data;
-    
+    } = this.props.location.state;
+
     const currentPosts = [1,1,1,1,11,1];
     return (
     <div className="container" id="mainProfile">
@@ -41,13 +42,16 @@ class ProfileDetails extends Component {
               <h3 className="product-name">{name}</h3>
               <h4 className="product-price">{birth_date}</h4>
             </div>
+            
           </div>
         </div>
         <div className="col-sm-8">
             <div className="row">
                 {currentPosts.map((_, index) => (
-                <Profile
+                <GalleryPicture
                     key={index}
+                    image_url_small={image_url_small}
+                    image_url_large={image_url_large}
                 />
                 ))}
             </div>

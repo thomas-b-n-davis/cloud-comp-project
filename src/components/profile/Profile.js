@@ -20,9 +20,15 @@ class Profile extends Component {
       <div className="col-md-4 col-lg-3 d-flex align-items-stretch">
         <Link
           to={{
-            pathname: "/detail"
-          }}
-          
+            pathname: "/detail",
+            state: {
+              id: id,
+              name,
+              breed_name,
+              birth_date,
+              image_url_small,
+              image_url_large
+            }}}  
         >
           <div className="product">
             <div className="product-img"
