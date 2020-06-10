@@ -1,9 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import axios from "axios";
-import $ from "jquery";
-import data from "../../mock"
 
 class Profile extends Component {
     render() {
@@ -14,6 +10,7 @@ class Profile extends Component {
         birth_date,
         image_url_small,
         image_url_large,
+        dialog_id,
     } = this.props;
 
     return (
@@ -27,7 +24,8 @@ class Profile extends Component {
               breed_name,
               birth_date,
               image_url_small,
-              image_url_large
+              image_url_large,
+              dialog_id
             }}}  
         >
           <div className="product">
@@ -42,7 +40,6 @@ class Profile extends Component {
                   width:'auto',
                   objectFit:'scale-down'
                 }}
-               
               />
             </div>
             <div className="product-body">

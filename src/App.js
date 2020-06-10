@@ -6,13 +6,15 @@ import './App.css';
 import './css/home.css';
 import Footer from './components/common/footer';
 import Header from './components/common/header';
-import Login from './components/login/login';
 import Search from './components/search/Search';
 import Profile from './components/profile/Profile';
 import ProfileDetails from './components/profile/ProfileDetails';
 import DogList from './components/search/DogList';
 import SignUp from './components/login/SignUp';
+import Chats from './components/chats/Chats';
+import SignIn from './components/login/SignIn';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from './components/login/login';
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
             <Route exact path="/search" component={Search} />
             <Route exact path="/detail" component={ProfileDetails} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/chats" component={Chats} />
           </Route>
         </Switch>
         <Footer/> 

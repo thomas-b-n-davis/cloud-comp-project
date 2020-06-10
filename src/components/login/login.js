@@ -4,7 +4,6 @@ import { Redirect } from "react-router";
 import "../../css/login_signup.css";
 import "../../css/index.css";
 import axios from "axios";
-import { connect } from "react-redux";
 
 class Login extends React.Component {
   constructor() {
@@ -38,40 +37,14 @@ class Login extends React.Component {
       fields["password"] = "";
       this.setState({ fields: fields });
       axios
-        .post("/api/post/login", {
+        .post("/api/login", {
           email: this.state.fields["emailid"],
           password: this.state.fields["password"]
         })
         .then(response => {
           if (response.data.code == 200) {
             console.log(response);
-            window.sessionStorage.setItem("userid", response.data.userid);
-            window.sessionStorage.setItem("userrole", response.data.userrole);
-            console.log(this.props.products.cartItems);
-            if(this.props.products.cartItems.length>0)
-            {
-              const userID=window.sessionStorage.getItem("userid")
-              this.props.products.cartItems.forEach(
-                  productInCart => {
-                    axios
-                    .post("/api/post/storeCartInfoFromLocalStorage", {
-                        product_id: productInCart.id ,
-                        buyer_id:userID,
-                        quantity:productInCart.quantity
-                      })
-                    }
-              )
-              localStorage.setItem('cartItems', JSON.stringify([]));
-            }
-
-            if(this.props.location.fromCart==='cart')
-            {
-
-              window.location.replace("/cart");
-            }
-            else {
-              window.location.replace("/");
-            }
+            window.sessionStorage.setItem("userid", response.data.userId); 
 
           } else {
             errors["emailid"] = "Invalid Email or Password.";

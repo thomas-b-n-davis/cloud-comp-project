@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
 import axios from "axios";
 import Profile from "../profile/Profile";
 
@@ -37,7 +36,7 @@ const getDogs = async sterm => {
     .catch(err => {
       console.log(err);
     });
-};
+  };
  
   const currentPosts = data;
   if (currentPosts.length === 0) {
@@ -57,6 +56,7 @@ const getDogs = async sterm => {
           breed_name={row.breed_name}
           image_url_small={row.image_url_small}
           image_url_large={row.image_url_large}
+          dialog_id={row.dialog_id}
           key={index}
         />
         ))}

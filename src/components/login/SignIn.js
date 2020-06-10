@@ -33,14 +33,14 @@ export class SignIn extends React.Component {
       fields["password"] = "";
       this.setState({ fields: fields });
       axios
-        .post("/api/post/login", {
+        .post("/api/login", {
           email: this.state.fields["emailid"],
           password: this.state.fields["password"]
         })
         .then(response => {
           if (response.data.code === 200) {
             console.log(response);
-            window.sessionStorage.setItem("userid", response.data.userid);
+            window.sessionStorage.setItem("userId", response.data.userid);
             //window.sessionStorage.setItem("userrole", response.data.userrole);
             // //console.log(this.props.products.cartItems);
             // if(this.props.products.cartItems.length>0)
