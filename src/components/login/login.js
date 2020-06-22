@@ -4,6 +4,7 @@ import { Redirect } from "react-router";
 import "../../css/login_signup.css";
 import "../../css/index.css";
 import axios from "axios";
+import dog from '../../images/dog2.jpg';
 
 class Login extends React.Component {
   constructor() {
@@ -140,7 +141,7 @@ class Login extends React.Component {
                   </div>
                 </div>
                 <div>
-                  <input type="submit" className="btn btn-primary btn-block" value="Login" name="login"/>
+                  <input type="submit" className="btn btn-primary btn-block loginbtn" value="Login" name="login"/>
                   <div>
                     <Link to="/signup">
                       <p className="forgot-password text-right">
@@ -152,9 +153,11 @@ class Login extends React.Component {
                 </div>
 
               </form>
+              
             </div>
           </div>
         </div>
+        <img src={dog} alt="this is car image" className="dog"/>
       </div>
     );
   }

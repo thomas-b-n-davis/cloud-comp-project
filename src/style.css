@@ -1,0 +1,28 @@
+.about{
+	floaf:left;
+}
+.about img{
+	float:right;
+}
+
+.about div{
+	float:left;
+	text-align: left;
+	width:30%;
+	line-height: 28px;
+	padding-top:100px;
+}
+
+.policy{
+	floaf:left;
+}
+.policy img{
+	float:left;
+}
+
+.policy div{
+	float:right;
+	text-align: left;
+	width:100%;
+	line-height: 28px;
+}

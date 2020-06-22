@@ -2,6 +2,9 @@ import React from "react";
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
 import { Link } from "react-router-dom";
+import dog from '../../images/dog2.jpg';
+import "../../css/login_signup.css";
+import "../../css/index.css";
 
 export class SignUp extends React.Component {
   constructor() {
@@ -151,8 +154,8 @@ export class SignUp extends React.Component {
 
   render() {
     return (
-      <div className="auth-wrapper m-5">
-        <div className="auth-inner">
+      <div className="auth-wrapper signup">
+        <div className="auth-inner signupdiv">
           <div id="main-registration-container">
             <div id="register" className="">
               <h3 className="text-center">Register</h3>

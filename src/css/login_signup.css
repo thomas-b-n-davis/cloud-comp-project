@@ -42,4 +42,19 @@
       margin-bottom: 10px;
     }
      
-  
+     .dog{
+      float:left;
+      width:50%;
+      height:auto;
+      position: fixed;
+     }
+  .loginbtn{
+    border-radius:30px;
+  }
+  .signup{
+    background: url('../images/dog1.png') no-repeat;
+    background-size: 50% auto;
+  }
+  .signupdiv{
+    width:450px !important;
+  }

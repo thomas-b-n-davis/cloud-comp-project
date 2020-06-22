@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Profile from "../profile/Profile";
-import dog from '../../images/dog1.png'
+import dog from '../images/dog2.jpg';
+import '../style.css';
 
 /**
  *the grid view for available products (paginated)
@@ -40,32 +40,20 @@ const getDogs = async sterm => {
   };
  
   const currentPosts = data;
-  if (currentPosts.length === 0) {
-    return (
+  return (
       <div className="noresults">
-        <h2>{"No results"}</h2>
-        <img src={dog} alt="this is car image"  width={"45%"}/>
-      </div>
-    );
-  } else {
-    return (
-      <div className="col-md-12">
-        <div className="row">
-         {currentPosts.map((row, index) => (
-        <Profile
-          id={row.id}
-          name={row.name}
-          breed_name={row.breed_name}
-          image_url_small={row.image_url_small}
-          image_url_large={row.image_url_large}
-          dialog_id={row.dialog_id}
-          key={index}
-        />
-        ))}
+        <div className="about">
+          <div>
+            <h2>About Us</h2>
+            <p>
+              We provide the platform for dog lovers to hangout and socialize, organise date and interact with other dog lovers.
+              This is a community of like minded people who share the same view and love for the K9 family.
+            </p>
+          </div>
+          <img src={dog} alt="this is car image"  width={"50%"}/>
         </div>
       </div>
     );
-  }
 };
  
 export default DogList;

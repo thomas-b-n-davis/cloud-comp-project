@@ -72,6 +72,7 @@ const Header = props => {
                 //     : "nav-item"
                 // }
               >
+              { (window.sessionStorage.getItem("userid") !== null) &&
                 <Link className="nav-link" to="#">
                   <i
                     className="fa fa-sign-out fa-2x mr-2"
@@ -79,6 +80,7 @@ const Header = props => {
                   ></i>
                   Log out
                 </Link>
+              }
               </li>
             </ul>
           </div>
