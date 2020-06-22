@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Profile from "../profile/Profile";
 import dog from '../../images/dog1.png'
+import api from '../../api_config';
 
 /**
  *the grid view for available products (paginated)
@@ -25,7 +26,7 @@ const getDogs = async sterm => {
   };
 
   await axios
-    .get("/api/dogs/search", data)
+    .get(api+"/api/dogs/search", data)
     .then(response => {
       console.log(`Response Status = ${response.status}`);
       if (Array.isArray(response.data)) {
