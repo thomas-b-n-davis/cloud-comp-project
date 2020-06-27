@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Profile from "../profile/Profile";
 import dog from '../../images/dog1.png'
-import api from '../../api_config';
+import {api} from '../../api_config';
 
 /**
  *the grid view for available products (paginated)
@@ -25,8 +25,9 @@ const getDogs = async sterm => {
     }
   };
 
+  axios.defaults.baseURL = api;
   await axios
-    .get(api+"/api/dogs/search", data)
+    .get("/api/dogs/search", data)
     .then(response => {
       console.log(`Response Status = ${response.status}`);
       if (Array.isArray(response.data)) {
@@ -44,7 +45,7 @@ const getDogs = async sterm => {
   if (currentPosts.length === 0) {
     return (
       <div className="noresults">
-        <h2>{"No results"}</h2>
+        <h2>{"No results"}{api}</h2>
         <img src={dog} alt="this is car image"  width={"45%"}/>
       </div>
     );
