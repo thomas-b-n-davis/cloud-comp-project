@@ -4,6 +4,7 @@
 import React from 'react';
 import './App.css';
 import './css/home.css';
+import axios from "axios";
 import Footer from './components/common/footer';
 import Header from './components/common/header';
 import Search from './components/search/Search';
@@ -17,8 +18,10 @@ import Chats from './components/chats/Chats';
 import SignIn from './components/login/SignIn';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from './components/login/login';
+import {api} from './api_config';
 
 function App() {
+  axios.defaults.baseURL = api;
   return (
     <Router>
       <div className="App">

@@ -13,6 +13,8 @@ class Profile extends Component {
         dialog_id,
     } = this.props;
 
+    console.log("==>",this.props);
+
     return (
       <div className="col-md-4 col-lg-3 d-flex align-items-stretch">
         <Link

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,button } from "react-router-dom";
 import { Redirect } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
@@ -49,6 +49,7 @@ const Header = props => {
           </ul>
           <div className="col px-0">
             <ul className="navbar-nav float-lg-right">
+            { (window.sessionStorage.getItem("userid") === null) &&
               <li className="nav-item">
                 <Link
                   className="nav-link"
@@ -64,7 +65,19 @@ const Header = props => {
                     : "User Profile"} 
                 </Link>
               </li>
+              }
 
+              { (window.sessionStorage.getItem("userid") !== null) &&
+                <li>
+                  <Link className="nav-link" to="/profile">
+                    <i
+                      className="fa fa-sign-out fa-2x mr-2"
+                      aria-hidden="true"
+                    ></i>
+                    Profile
+                  </Link>
+                </li>
+              }
               <li
                 // className={
                 //   window.sessionStorage.getItem("userid") === null
@@ -72,14 +85,14 @@ const Header = props => {
                 //     : "nav-item"
                 // }
               >
+              
               { (window.sessionStorage.getItem("userid") !== null) &&
-                <Link className="nav-link" to="#">
-                  <i
-                    className="fa fa-sign-out fa-2x mr-2"
-                    aria-hidden="true"
-                  ></i>
+                <button className="nav-link custonBtn" onClick={() => {
+                  window.sessionStorage.removeItem("userid"); 
+                  window.open("/login");
+                }}>
                   Log out
-                </Link>
+                </button>
               }
               </li>
             </ul>
