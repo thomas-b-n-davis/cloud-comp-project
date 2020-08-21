@@ -46,7 +46,7 @@ class Login extends React.Component {
           console.log(response);
           if (response.data.code == 200) {
             window.sessionStorage.setItem("userid", response.data.userId); 
-            window.open("/doglist");
+            window.open("/profile");
           } else {
             errors["emailid"] = "Invalid Email or Password.";
             this.setState({
