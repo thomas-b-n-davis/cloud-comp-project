@@ -46,7 +46,26 @@ class Login extends React.Component {
           console.log(response);
           if (response.data.code == 200) {
             window.sessionStorage.setItem("userid", response.data.userId); 
-            window.open("/profile");
+             const ldata = {
+              params: {
+                id: response.data.userId,
+                currentId:response.data.userId
+              }
+            };
+            axios
+                .get("/api/dog", ldata)
+                .then(response => {
+                  console.log(`Response Status = ${response.status}`);
+                  console.log(`Response Data = ${response.data}`);
+                  if (Array.isArray(response.data)) {
+                    window.sessionStorage.setItem("profile", JSON.stringify(response.data)); 
+                    window.open("/profile");
+                  }
+                })
+                .catch(err => {
+                  console.log(err);
+                });
+
           } else {
             errors["emailid"] = "Invalid Email or Password.";
             this.setState({

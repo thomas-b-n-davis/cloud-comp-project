@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import '../../App.css';
 import GalleryPicture from "../gallery/Picture";
 
 const ProfileDetails = props => {
@@ -34,7 +35,7 @@ const ProfileDetails = props => {
   const getPhotos = async sterm => {
     const data = {
       params: {
-        id: 2,
+        id: props.location.state.id,
       }
     };
 
@@ -61,13 +62,14 @@ const ProfileDetails = props => {
     image_url_small,
     image_url_large,
     dialog_id
-  } = props.location.state;
+  } = (props.location.state!=undefined)?props.location.state:{};
+  console.log(":::",props);
 
   const currentPosts = data;
   return (
     <div className="container" id="mainProfile">
       <div className="row">
-        <div className="col-sm-4 col-lg-3 d-flex align-items-stretch">
+        <div className="col-sm-4 col-lg-3 col-md-3 d-flex align-items-stretch">
           <div className="product">
             <div className="product-img"
               style={{ background: 'white' }}>
@@ -75,9 +77,7 @@ const ProfileDetails = props => {
                 src={image_url_large}
                 alt="product_name"
                 style={{
-                  maxHeight: '300px',
-                  minHeight: '300px',
-                  width: 'auto',
+                  width: '90%',
                   objectFit: 'scale-down'
                 }}
 
@@ -96,14 +96,19 @@ const ProfileDetails = props => {
             }}>
               <input type="submit" className="btn btn-primary btn-block" value="Chat" name="chat" />
             </Link>
-            <input
-                type="file"
-                className="text-center mx-auto file-upload"
-                onChange={e => uploadPhoto(e.target.files[0])}
-              />
+
+            {(id==window.sessionStorage.getItem("userid")) &&
+              <input
+                style={{ margin: 10,width:'100%' }}
+                  type="file"
+                  className="text-center mx-auto file-upload "
+                  onChange={e => uploadPhoto(e.target.files[0])}
+                />
+            }
           </div>
         </div>
-        <div className="col-sm-8">
+        <div className="col-sm-1 col-lg-1 col-md-1"></div>
+        <div className="col-sm-7 col-lg-7 col-md-7">
           <div className="row">
             {currentPosts.map((picture, index) => (
               <GalleryPicture

@@ -11,7 +11,9 @@ import "../../css/header.css";
  * term and type.
  */
 const Header = props => {
- 
+  const stateData=JSON.parse(window.sessionStorage.getItem("profile"))[0];
+  console.log("Profile",stateData);
+  console.log(stateData.id);
   return (
     <div className="sticky-top">
       <nav className="navbar navbar-expand-lg navbar-dark ">
@@ -56,7 +58,7 @@ const Header = props => {
                   to={
                     true
                       ? "/login"
-                      : "/user"
+                      : "/detail"
                   }
                 >
                   <i className="fa fa-user fa-2x mr-2" aria-hidden="true"></i>
@@ -69,13 +71,22 @@ const Header = props => {
 
               { (window.sessionStorage.getItem("userid") !== null) &&
                 <li>
-                  <Link className="nav-link" to="/profile">
+                  <Link className="nav-link" to={{
+                    pathname: "/detail",
+                    state: {id: stateData.id,
+                      name:stateData.name,
+                      breed_name:stateData.breed_name,
+                      birth_date:stateData.birth_date,
+                      image_url_small:stateData.image_url_small,
+                      image_url_large:stateData.image_url_large,
+                      dialog_id:stateData.dialog_id}}} >
                     <i
                       className="fa fa-sign-out fa-2x mr-2"
                       aria-hidden="true"
                     ></i>
                     Profile
                   </Link>
+
                 </li>
               }
               <li

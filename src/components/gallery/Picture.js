@@ -11,7 +11,7 @@ class GalleryPicture extends Component {
         } = this.props;
 
         return (
-            <div className="col-md-4 col-lg-3 d-flex align-items-stretch">
+            <div className="col-md-6 col-lg-6 d-flex align-items-stretch">
                 <Link
                     to={{
                         pathname: "/galleryDetails"
@@ -25,9 +25,7 @@ class GalleryPicture extends Component {
                                 src={image_url_large}
                                 alt="product_name"
                                 style={{
-                                    maxHeight: '300px',
-                                    minHeight: '300px',
-                                    width: 'auto',
+                                    width: '100%',
                                     objectFit: 'scale-down'
                                 }}
 

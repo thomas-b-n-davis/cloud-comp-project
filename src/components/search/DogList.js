@@ -20,8 +20,8 @@ useEffect(() => {
 const getDogs = async sterm => {
   const data = {
     params: {
-      id: 1,
-      currentId: 1
+      id: window.sessionStorage.getItem("userid"),
+      currentId: window.sessionStorage.getItem("userid")
     }
   };
 
