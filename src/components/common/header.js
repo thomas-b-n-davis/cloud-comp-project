@@ -11,7 +11,7 @@ import "../../css/header.css";
  * term and type.
  */
 const Header = props => {
-  const stateData="";
+  let stateData="";
   if(window.sessionStorage.getItem("profile")!=null)
     stateData=JSON.parse(window.sessionStorage.getItem("profile"))[0];
   
