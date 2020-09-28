@@ -103,7 +103,7 @@ const Header = props => {
               { (window.sessionStorage.getItem("userid") !== null) &&
                 <button className="nav-link custonBtn" onClick={() => {
                   window.sessionStorage.removeItem("userid"); 
-                  window.open("/login");
+                  window.location="/login";
                 }}>
                   Log out
                 </button>
