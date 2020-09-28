@@ -39,7 +39,7 @@ class Profile extends Component {
                 style={{
                   maxHeight:'300px',
                   minHeight:'300px',
-                  width:'auto',
+                  width:'100%',
                   objectFit:'scale-down'
                 }}
               />
